@@ -1,0 +1,164 @@
+version: '3.7'
+services:
+  vredis: # Redis container
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_store/v_redis/dockerfile
+    networks:
+      vtrvs:
+        aliases:
+          - redis.vitruvius
+    healthcheck:
+      test: ["CMD", "redis-cli", "AUTH", "vitruvius", "CSFDcode123"]
+      interval: 3s
+    environment:
+      REDIS_HOSTNAME: redis.vitruvius
+  vpostgres: # PostgreSQL container
+    hostname: postgres.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_store/v_postgres/dockerfile
+    ports:
+      - "5432:5432"
+    networks:
+      vtrvs:
+        aliases:
+          - postgres.vitruvius
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "postgres.vitruvius", "-p", "5432", "-U", "vitruvius", "-d", "vitruvius"]
+      interval: 3s
+      start_period: 60s
+    environment:
+      POSTGRES_DB: vitruvius
+      POSTGRES_USER: vitruvius
+      POSTGRES_PASSWORD: CSFDcode123
+  # Uncomment the following section to add a Microsoft SQL Server container
+  ################################################
+  # vmssql:
+  #   hostname: mssql.vitruvius
+  #   build:
+  #     context: .nodes/vitrvs_store/v_mssql
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "1433:1433"
+  #   networks:
+  #     vtrvs:
+  #       aliases:
+  #         - mssql.vitruvius
+  #   healthcheck:
+  #     test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-C", "-S", "mssql.vitruvius,1433", "-U", "vitruvius", "-P", "CSFDcode123", "-d", "vitruvius"]
+  #     interval: 3s
+  #     start_period: 60s
+  vapi: # API container
+    hostname: api.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_share/v_api/dockerfile
+    ports:
+      - "5554:5554"
+    networks:
+      vtrvs:
+        aliases:
+          - api.vitruvius
+    restart: always
+    environment:
+      CONFIG_NAME: v_api
+      DEVICE_NAME: spydr
+  vdev: # Development container
+    hostname: dev.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_develop/v_dev/dockerfile
+    ports:
+      - "5552:5552"
+    networks:
+      vtrvs:
+        aliases:
+          - dev.vitruvius
+    restart: always
+    environment:
+      CONFIG_NAME: v_api
+      DEVICE_NAME: spydr
+    # Uncomment the following lines to use the Microsoft SQL Server container. Allows time for start up. Must uncomment SQL Server container above.
+    # depends_on:
+    #   v_mssql:
+    #     condition: service_healthy
+  vconfig: # Configuration container
+    hostname: config.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_config/v_config/dockerfile
+    ports:
+      - "5555:5555"
+    networks:
+      vtrvs:
+        aliases:
+          - config.vitruvius
+    environment:
+      REDIS_HOST: redis.vitruvius
+      REDIS_PORT: 6379
+      REDIS_USERNAME: default
+      REDIS_PASSWORD: CSFDcode123
+      REDIS_SSL_VERIFY: False
+      REDIS_SSL_CERTFILE: None
+      REDIS_SSL_KEYFILE: None
+      REDIS_SSL_CA_CERTS: None
+  # For new models duplicate the below, changing the CONFIG_NAME and DEVICE_NAME for each model according to the .json file
+  ################################################
+  vspydr: # Model container
+    hostname: spydr.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_config/v_model/dockerfile
+    ports:
+      - "5556:5556"
+    networks:
+      vtrvs:
+        aliases:
+          - spydr.vitruvius
+    depends_on:
+      vconfig:
+        condition: service_started
+      vpostgres:
+        condition: service_healthy
+    environment:
+      MODEL_NAME: spydr
+      CONFIG_NAME: v_model
+      DB_DIALECT_DRIVER: postgresql
+      DB_HOST: postgres.vitruvius
+      DB_PORT: 5432
+      DB_NAME: vitruvius
+      DB_USER: vitruvius
+      DB_PASS: CSFDcode123
+  vformat: # Format container
+    hostname: format.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_format/v_format/dockerfile
+    ports:
+      - "5553:5553"
+    networks:
+      vtrvs:
+        aliases:
+          - format.vitruvius
+    depends_on:
+      vconfig:
+        condition: service_started
+    environment:
+      CONFIG_NAME: v_format
+  vscode: # VS Code container
+    hostname: code.vitruvius
+    build:
+      context: ./
+      dockerfile: ./nodes/vitrvs_develop/vs_code_service/dockerfile
+    ports:
+      - "5551:5551"
+    networks:
+      vtrvs:
+        aliases:
+          - code.vitruvius
+    environment:
+      NODE_NAME: vs-code-1
+networks:
+  vtrvs:
+    attachable: true

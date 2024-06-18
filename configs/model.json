@@ -1,0 +1,28 @@
+{
+    "DEBUG": true,
+    "TESTING": false,
+    "PROPAGATE_EXCEPTIONS": null,
+    "TRAP_HTTP_EXCEPTIONS": false,
+    "TRAP_BAD_REQUEST_ERRORS": false,
+    "SECRET_KEY": "7ccea083f19c98d60ea63f469e792de9f7d4bb0acb43df6f35e128d1790e81d4",
+    "SESSION_COOKIE_NAME": "session",
+    "SESSION_COOKIE_DOMAIN": false,
+    "SESSION_COOKIE_PATH": null,
+    "SESSION_COOKIE_HTTPONLY": true,
+    "SESSION_COOKIE_SECURE": false,
+    "SESSION_COOKIE_SAMESITE": null,
+    "PERMANENT_SESSION_LIFETIME": 31,
+    "SESSION_REFRESH_EACH_REQUEST": true,
+    "USE_X_SENDFILE": false,
+    "SEND_FILE_MAX_AGE_DEFAULT": null,
+    "SERVER_NAME": null,
+    "APPLICATION_ROOT": "/",
+    "PREFERRED_URL_SCHEME": "http",
+    "MAX_CONTENT_LENGTH": null,
+    "TEMPLATES_AUTO_RELOAD": null,
+    "EXPLAIN_TEMPLATE_LOADING": false,
+    "MAX_COOKIE_SIZE": 4093,
+    "SQLALCHEMY_DATABASE_URI": "postgresql://vitruvius:CSFDcode123@localhost:5432/vitruvius",    
+    "SQLALCHEMY_TRACK_MODIFICATIONS": false
+}
+  

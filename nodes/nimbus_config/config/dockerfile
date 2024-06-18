@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+RUN mkdir /app
+WORKDIR /app
+ADD nodes/vitrvs_config/v_config/ .
+RUN mkdir /app/v_config/configs
+RUN mkdir /app/v_config/tests
+RUN mkdir /app/v_config/models
+
+COPY configs/ /app/v_config/configs
+COPY tests/ /app/v_config/tests
+COPY models/ /app/v_config/models
+
+RUN apt-get update
+RUN pip install -r requirements.txt
+
+EXPOSE 5555
+CMD [ "python3", "-m" , "flask","--app", "app:create_app()", "run", "--host=0.0.0.0", "--port=5555"]

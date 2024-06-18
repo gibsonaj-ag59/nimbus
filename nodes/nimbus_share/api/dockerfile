@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+
+RUN mkdir /app
+WORKDIR /app
+ADD nodes/vitrvs_share/v_api/ .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 5554
+
+CMD [ "python3", "-m" , "flask","--app", "app:create_app()", "run", "--host=0.0.0.0", "--port=5554"]

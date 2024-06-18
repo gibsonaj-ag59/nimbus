@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+#!bin/bash
+ /usr/init/build.sh & /opt/mssql/bin/sqlservr
+=======
+#!/bin/bash
+# ISSUE:SQL Authenticates, but doesn't restart properly.
+/opt/mssql/bin/sqlservr & /usr/init/build.sh -v $VTRVS_PASSWORD 
+>>>>>>> 687384723de64541efd0a3743858129a7c68d315

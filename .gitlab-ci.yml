@@ -1,0 +1,33 @@
+# .gitlab-ci.yml
+
+# Services to be used during the pipeline
+default:
+  before_script:
+    - docker run --privileged -d docker:dind 
+  image: docker
+  services: 
+    - docker:dind
+  
+
+# Stages for the pipeline
+stages:
+  - build
+  - deploy
+
+# Job to build the Docker images
+build:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER 
+                   -p $CI_REGISTRY_PASSWORD gitlab.stitches.mil
+  script:
+    - docker-compose build
+
+# Job to deploy the Docker containers
+deploy:
+  stage: deploy
+  before_script:
+    - docker login -u $CI_REGISTRY_USER 
+                   -p $CI_REGISTRY_PASSWORD gitlab.stitches.mil
+  script:
+  - docker-compose up -d

@@ -1,0 +1,141 @@
+{
+    "tablename": "spydr",
+    "database_name": "v_spydr",
+    "database_user": "vitruvius",
+    "database_password": "CSFDcode123",
+    "model_type": "device",
+    "model_schema": "device",
+    "columns" : {
+        "spydr_id": {
+            "type": "Integer",
+            "index": true
+        },
+        "datetime_utc": {
+            "type": "DateTime"
+        },
+        "l_spo2" : {
+            "type": "Integer"
+        },
+        "l_pulserate" : {
+            "type": "Integer"
+        },
+        "l_status" : {
+            "type": "Integer"
+        },
+        "l_pressure": {
+            "type": "Integer"
+        },
+        "l_temperature": {
+            "type": "Integer"
+        },
+        "l_accel_x": {
+            "type": "Integer"
+        },
+        "l_accel_y": {
+            "type": "Integer"
+        },
+        "l_accel_z": {
+            "type": "Integer"
+        },
+        "l_gyro_x": {
+            "type": "Integer"
+        },
+        "l_gyro_y": {
+            "type": "Integer"
+        },
+        "l_gyro_z": {
+            "type": "Integer"
+        },
+        "r_spo2" : {
+            "type": "Integer"
+        },
+        "r_pulserate" : {
+            "type": "Integer"
+        },
+        "r_status" : {
+            "type": "Integer"
+        },
+        "r_pressure": {
+            "type": "Integer"
+        },
+        "r_temperature": {
+            "type": "Integer"
+        },
+        "r_accel_x": {
+            "type": "Integer"
+        },
+        "r_accel_y": {
+            "type": "Integer"
+        },
+        "r_accel_z": {
+            "type": "Integer"
+        },
+        "r_gyro_x": {
+            "type": "Integer"
+        },
+        "r_gyro_y": {
+            "type": "Integer"
+        },
+        "r_gyro_z": {
+            "type": "Integer"
+        },
+        "tvoc": {
+            "type": "Integer"
+        },
+        "co2e_lowest": {
+            "type": "Integer"
+        },
+        "co2e_highest": {
+            "type": "Integer"
+        },
+        "resp_rate": {
+            "type": "Integer"
+        },
+        "merged_spo2": {
+            "type": "Integer"
+        },
+        "spo2_percent_difference":{ 
+            "type": "Float"
+        },
+        "merged_pulserate": {
+            "type": "Integer"
+        },
+        "pulserate_percent_difference": {
+            "type": "Float"
+        },
+        "alarm":{
+            "type": "Integer"
+        },
+        "tt":{ 
+            "type": "Integer"
+        },
+        "elapsed_mission_time_mins": {
+            "type": "Float"
+        },
+        "spo2_percent":{ 
+            "type": "Integer"
+        },
+        "pulse_bpm":{   
+            "type": "Integer"
+        },
+        "temp_f":{ 
+            "type": "Integer"
+        },
+        "pressure_altitude_feet_msl":{ 
+            "type": "Float"
+        },
+        "peak_acceleration_gs":{ 
+            "type": "Float"
+        },
+        "hypox_alert":{ 
+            "type": "Integer"
+        },
+        "baro_alert":{ 
+            "type": "Integer"
+        },
+        "sortie_id":{ 
+            "type": "Integer",
+            "index": true
+        }
+    }
+}

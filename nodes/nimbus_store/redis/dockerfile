@@ -1,0 +1,8 @@
+FROM redis
+
+RUN mkdir ./etc
+COPY ./configs/redis.conf /etc/redis.conf
+
+ENV REDIS_HOSTNAME redis.vitruvius
+
+CMD redis-server /etc/redis.conf

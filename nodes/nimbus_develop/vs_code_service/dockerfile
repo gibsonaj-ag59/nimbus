@@ -1,0 +1,38 @@
+FROM python:3.11-slim
+
+# Update the package index and install dependencies
+RUN apt-get update && \
+    apt-get install -y gnupg2 software-properties-common apt-transport-https curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Import the Microsoft GPG key
+RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+# Add the Visual Studio Code repository
+RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
+
+# Update the package index again and install Visual Studio Code
+RUN apt-get update && \
+    apt-get install -y libxkbfile1 && \
+    apt-get install -y libvulkan1 && \
+    apt-get install -y python3
+    
+RUN apt-get update && \
+    apt-get install -y code && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory and build subdirs
+WORKDIR /workspace
+RUN mkdir /workspace/.vscode
+RUN mkdir /workspace/.vscode/cli
+RUN touch /workspace/.vscode/cli/serve-web-token
+
+ADD nodes/vitrvs_develop/vs_code_service/ .
+RUN python3 -m pip install -r requirements.txt
+
+#RUN python3 send_token.py
+
+ENV DONT_PROMPT_WSL_INSTALL=1
+ENV HOME=/workspace
+
+ENTRYPOINT ["python3", "init.py"]

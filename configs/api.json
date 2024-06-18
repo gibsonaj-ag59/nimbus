@@ -1,0 +1,6 @@
+{
+  "DEVICE": "spydr",
+  "DEBUG": true,
+  "SECRET_KEY": "hello",
+  "SQLALCHEMY_TRACK_MODIFICATIONS": false
+}
