@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-v_open_api = Blueprint(
-    'v_api',
+api = Blueprint(
+    'napi',
     __name__, 
     url_prefix='/api/v1'
     )

@@ -1,5 +1,5 @@
-from v_format import create_app
+from format import create_app
 
-if __name__ == "__main__":
+if __name__ == "__mai_":
     app = create_app()
     app.run()

@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-v_configs_api = Blueprint(
-    'v_configs',
+configs_api = Blueprint(
+    'configs',
     __name__,
     url_prefix="/api/v1/configs"
     )

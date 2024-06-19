@@ -2,7 +2,7 @@ FROM python:3.11-slim-buster
 
 RUN mkdir /app
 WORKDIR /app
-ADD nodes/vitrvs_develop/v_dev/ .
+ADD nodes/nimbus_develop/dev/ .
 
 RUN pip install -r requirements.txt
 

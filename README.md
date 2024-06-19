@@ -1,8 +1,8 @@
-# Vitruvius
+# Nimbus
 
 ## Overview
 
-Vitruvius is a back end microprocess based architecture to support the ingest, cleaning, relating, storing and provision of data from multiple source devices collected by the Human Factors team.
+Nimbus is a back end microprocess based architecture to support the ingest, cleaning, relating, storing and provision of data from multiple source devices collected by the Human Factors team.
 
 ## Prequisites
 
@@ -25,28 +25,28 @@ Vitruvius is a back end microprocess based architecture to support the ingest, c
 
 ## Installation
 
-Vitruvius is a cluster of Docker containers running in tandem. This splits the workload into multiple processes and allows a singular manager for all of those processes. To run a local **DEVELOPMENT** copy of Vitruvius. Clone this repository, ensure you have the prerequisites inplace, and use `docker compose up` in the [top folder](https://gitlab.stitches.mil/59-tes/vitruvius) of the repo.
+Nimbus is a cluster of Docker containers running in tandem. This splits the workload into multiple processes and allows a singular manager for all of those processes. To run a local **DEVELOPMENT** copy of Nimbus. Clone this repository, ensure you have the prerequisites inplace, and use `docker compose up` in the [top folder](https://gitlab.stitches.mil/59-tes/nimbus) of the repo.
 
 ### Components
 
 ---
 
-The table belows shows nodes in the Vitruvius cluster.
+The table belows shows nodes in the Nimbus cluster.
 
 | Name | Type | Enabled | Required | Function |
 |-----------|--------------|-------|--------|----------------|
-| vapi      | vtrvs_share  | True  | True   | Primary provider of data to the user |
-| vmssql    | vtrvs_store  | False | False* | Microsoft SQL Server storage option |
-| vredis    | vtrvs_store  | True  | True   | Provides a file store |
-| vpostgres | vtrvs_store  | True  | True*  | PostgresSQL storage option |
-| vconfig   | vtrvs_config | True  | True   | Configuration Management |
-| vspydr    | vtrvs_model  | True  | True   | Spydr Data Management |
+| api      | nmbs_share  | True  | True   | Primary provider of data to the user |
+| mssql    | nmbs_store  | False | False* | Microsoft SQL Server storage option |
+| redis    | nmbs_store  | True  | True   | Provides a file store |
+| postgres | nmbs_store  | True  | True*  | PostgresSQL storage option |
+| config   | nmbs_config | True  | True   | Configuration Management |
+| spydr    | nmbs_model  | True  | True   | Spydr Data Management |
 
 **Postgres is active by default. The system supports Microsoft SQL Server with some configuration changes. Having both storage systems active may cause unintended side affects.
  
 ## vapi
 
-The v_api has a one endpoint style API. The endpoint is located at http://localhost:5554/api/v1/ and accepts a formatted query string as such: 
+The api has a one endpoint style API. The endpoint is located at http://localhost:5554/api/v1/ and accepts a formatted query string as such: 
 
 `<device>?<metric>-<comparison>=<criteria>`
 
@@ -58,7 +58,7 @@ will query everything for that device. Use with caution.
 
 <details>
     <summary>Device Keywords</summary>
-    <p>Must be one of the table names in <a href="https://gitlab.stitches.mil/59-tes/vitruvius/-/tree/main/models">the models</a> folder.</p>
+    <p>Must be one of the table names in <a href="https://gitlab.stitches.mil/59-tes/nimbus/-/tree/main/models">the models</a> folder.</p>
 </details>
 
 <details>
@@ -135,7 +135,7 @@ The above request will return any record from the Spydr node where the `l_pulser
 
 ## vspydr
 
-The current configuration of the v_spydr data model has the following schema.
+The current configuration of the spydr data model has the following schema.
 
 ```json
 "columns" : {
@@ -242,7 +242,7 @@ The current configuration of the v_spydr data model has the following schema.
         "tt":{ 
             "type": "Integer"
         },
-        "elapsed_mission_time_mins": {
+        "elapsed_missiotime_mins": {
             "type": "Float"
         },
         "spo2_percent":{ 
@@ -257,7 +257,7 @@ The current configuration of the v_spydr data model has the following schema.
         "pressure_altitude_feet_msl":{ 
             "type": "Float"
         },
-        "peak_acceleration_gs":{ 
+        "peak_acceleratiogs":{ 
             "type": "Float"
         },
         "hypox_alert":{ 

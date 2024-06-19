@@ -1,4 +1,4 @@
-from v_model import db
+from model import db
 
 class DataModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)

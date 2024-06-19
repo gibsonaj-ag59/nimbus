@@ -7,23 +7,23 @@ class VRedis(Redis):
         super().__init__(*args, **kwargs)
 
     def load_configs(self):
-        for file in os.listdir('/app/v_config/configs/'):
+        for file in os.listdir('/app/config/configs/'):
             if file.endswith('.json'):
-                with open(f'/app/v_config/configs/{file}', 'r') as f:
+                with open(f'/app/config/configs/{file}', 'r') as f:
                     cfg_obj = json.load(f)
                 self.set(file.split('.')[0], json.dumps(cfg_obj))
 
     def load_models(self):
-        for file in os.listdir('/app/v_config/models/'):
+        for file in os.listdir('/app/config/models/'):
             if file.endswith('.json'):
-                with open(f'/app/v_config/models/{file}', 'r') as f:
+                with open(f'/app/config/models/{file}', 'r') as f:
                     mdl_obj = json.load(f)
                 self.set(file.split('.')[0], json.dumps(mdl_obj))
 
     def load_tests(self):
-        for file in os.listdir('/app/v_config/tests/'):
+        for file in os.listdir('/app/config/tests/'):
             if file.endswith('.json'):
-                with open(f'/app/v_config/tests/{file}', 'r') as f:
+                with open(f'/app/config/tests/{file}', 'r') as f:
                     test_obj = json.load(f)
                 self.set(file.split('.')[0], json.dumps(test_obj))
 

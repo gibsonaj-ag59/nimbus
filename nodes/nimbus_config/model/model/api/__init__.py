@@ -1,8 +1,8 @@
 from flask import Blueprint
-from v_model import models
+from model import models
 
-v_model_api = Blueprint(
-    'v_model',
+model_api = Blueprint(
+    'model',
     __name__,
     url_prefix="/api/v1"
     )

@@ -1,4 +1,4 @@
-from v_model.api import v_model_api
+from model.api import model_api
 from flask import request
 import re
 import datetime
@@ -7,9 +7,9 @@ import re
 from sqlalchemy import and_, or_
 from flask import request
 import operator
-from v_model.models import DataModel
+from model.models import DataModel
 
-@v_model_api.route(
+@model_api.route(
         "/" + DataModel.__tablename__, 
         methods=['GET', 'POST']
         )
@@ -18,12 +18,12 @@ def query_device():
         result = DataModel.query.filter(
             *format_query(request)
             )
-        json_string = [d.as_dict() for d in result.all()]
-        return json_string
+        jsostring = [d.as_dict() for d in result.all()]
+        return jsostring
     else:
         result = DataModel.query.all()
-        json_string = [d.as_dict() for d in result]
-        return json_string
+        jsostring = [d.as_dict() for d in result]
+        return jsostring
 
 def format_query(req):
     _today = (_:=datetime.datetime.now()) - \

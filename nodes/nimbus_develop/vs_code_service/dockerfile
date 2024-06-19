@@ -27,7 +27,7 @@ RUN mkdir /workspace/.vscode
 RUN mkdir /workspace/.vscode/cli
 RUN touch /workspace/.vscode/cli/serve-web-token
 
-ADD nodes/vitrvs_develop/vs_code_service/ .
+ADD nodes/nimbus_develop/vs_code_service/ .
 RUN python3 -m pip install -r requirements.txt
 
 #RUN python3 send_token.py

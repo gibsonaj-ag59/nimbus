@@ -1,4 +1,4 @@
-from bootstrap_service.v_api import btstrp_srvc
+from bootstrap_service.api import btstrp_srvc
 
 @btstrp_srvc.route('/get/<string:folder_name>/<string:script_name>')
 def get_file(folder_name, script_name):

@@ -22,7 +22,7 @@
     "TEMPLATES_AUTO_RELOAD": null,
     "EXPLAIN_TEMPLATE_LOADING": false,
     "MAX_COOKIE_SIZE": 4093,
-    "SQLALCHEMY_DATABASE_URI": "postgresql://vitruvius:CSFDcode123@localhost:5432/vitruvius",    
+    "SQLALCHEMY_DATABASE_URI": "postgresql://nimbus:CSFDcode123@localhost:5432/nimbus",    
     "SQLALCHEMY_TRACK_MODIFICATIONS": false
 }
   

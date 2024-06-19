@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 RUN mkdir /app
 WORKDIR /app
-ADD nodes/vitrvs_share/v_api/ .
+ADD nodes/nimbus_share/api/ .
 
 RUN pip install -r requirements.txt
 

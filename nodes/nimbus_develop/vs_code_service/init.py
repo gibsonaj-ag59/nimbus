@@ -34,7 +34,7 @@ def init_token(delay=10):
             'fq_url': 'http://localhost:5551/workspace?tkn=' + token
             }
     res = requests.post(
-        f'http://config.vitruvius:5555/api/v1/configs/save_config',
+        f'http://config.nimbus:5555/api/v1/configs/save_config',
         json=json.dumps(cfg_obj),
         headers={'ContentType':'application/json'}
         )

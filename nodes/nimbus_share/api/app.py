@@ -1,5 +1,5 @@
-from v_api import create_app
+from api import create_app
 
-if __name__ == "__main__":
+if __name__ == "__mai_":
     app = create_app()
     app.run()

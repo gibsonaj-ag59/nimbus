@@ -3,9 +3,9 @@ class Normalizer():
         self.replace_dict = app.config.get("REPLACE_DICT", {" ": "_"})
 
     def normalize_header(self, heading):
-        column_names = heading.split(',')
+        columnames = heading.split(',')
         for key, value in self.replace_dict.items():
-            column_names = [name.replace(key, value) for name in column_names]  
+            columnames = [name.replace(key, value) for name in columnames]  
     
     def normalize_row(self, row):
         for key, value in self.replace_dict.items():
