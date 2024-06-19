@@ -63,7 +63,7 @@ services:
     restart: always
     environment:
       CONFIG_NAME: api
-      DEVICE_NAME: spydr
+      DEVICE_NAME: sample
   ndev: # Development container
     hostname: dev.nimbus
     build:
@@ -78,7 +78,7 @@ services:
     restart: always
     environment:
       CONFIG_NAME: api
-      DEVICE_NAME: spydr
+      DEVICE_NAME: sample
     volumes:
       - nmbs_code:/app/bootstrap_service/static
     # Uncomment the following lines to use the Microsoft SQL Server container. Allows time for start up. Must uncomment SQL Server container above.
@@ -107,8 +107,8 @@ services:
       REDIS_SSL_CA_CERTS: None
   # For new models duplicate the below, changing the CONFIG_NAME and DEVICE_NAME for each model according to the .json file
   ################################################
-  nspydr: # Model container
-    hostname: spydr.nimbus
+  nsample: # Model container
+    hostname: sample.nimbus
     build:
       context: ./
       dockerfile: ./nodes/nimbus_config/model/dockerfile
@@ -117,14 +117,14 @@ services:
     networks:
       nmbs:
         aliases:
-          - spydr.nimbus
+          - sample.nimbus
     depends_on:
       nconfig:
         condition: service_started
       npostgres:
         condition: service_healthy
     environment:
-      MODEL_NAME: spydr
+      MODEL_NAME: sample
       CONFIG_NAME: model
       DB_DIALECT_DRIVER: postgresql
       DB_HOST: postgres.nimbus

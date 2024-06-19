@@ -1,8 +1,8 @@
 {
-    "table": "spydr",
+    "table": "sample",
     "values": [
         {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:00Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -43,11 +43,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:01Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -88,11 +87,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:02Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -133,11 +131,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:03Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -178,11 +175,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:04Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -223,11 +219,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:05Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -268,11 +263,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:06Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -313,11 +307,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:07Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -358,11 +351,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:08Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -403,11 +395,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:09Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -448,11 +439,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:10Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -493,11 +483,10 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     },
     {
-        "spydr_id": "12345",
+        "sample_id": "12345",
         "datetime_utc": "2024-02-23T00:00:11Z",
         "l_spo2": 98,
         "l_pulserate": 65,
@@ -538,8 +527,7 @@
         "pressure_altitude_feet_msl": 1.0,
         "peak_acceleration_gs": 1.1,
         "hypox_alert": 0,
-        "baro_alert": 0,
-        "sortie_id": 1
+        "baro_alert": 0
     }
     ]
 }

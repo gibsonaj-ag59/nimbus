@@ -40,7 +40,7 @@ The table belows shows nodes in the Nimbus cluster.
 | redis    | nmbs_store  | True  | True   | Provides a file store |
 | postgres | nmbs_store  | True  | True*  | PostgresSQL storage option |
 | config   | nmbs_config | True  | True   | Configuration Management |
-| spydr    | nmbs_model  | True  | True   | Spydr Data Management |
+| sample    | nmbs_model  | True  | True   | Spydr Data Management |
 
 **Postgres is active by default. The system supports Microsoft SQL Server with some configuration changes. Having both storage systems active may cause unintended side affects.
  
@@ -52,7 +52,7 @@ The api has a one endpoint style API. The endpoint is located at http://localhos
 
 > Only putting the device at the end of the URL:
 
-http://localhost:5554/api/v1/spydr
+http://localhost:5554/api/v1/sample
 
 will query everything for that device. Use with caution.
 
@@ -127,19 +127,19 @@ Requests can be made with multiple query statements by using Logical operators. 
 
 Example:
 
-`http://localhost:5000/api/v1/spydr?l_pulserate-gt=90&%7C&r_pulserate-gt=90`
+`http://localhost:5000/api/v1/sample?l_pulserate-gt=90&%7C&r_pulserate-gt=90`
 
 The above request will return any record from the Spydr node where the `l_pulserate` column, OR (`&%7C&`) `r_pulserate` column is greater than (`gt`) 90.
 
 > Notice that Metric names use an underscore `_` for separation within itself and a dash `-` before the comparison operator.
 
-## vspydr
+## vsample
 
-The current configuration of the spydr data model has the following schema.
+The current configuration of the sample data model has the following schema.
 
 ```json
 "columns" : {
-        "spydr_id": {
+        "sample_id": {
             "type": "Integer",
             "index": true
         },

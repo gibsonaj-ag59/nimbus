@@ -1,12 +1,12 @@
 {
-    "tablename": "spydr",
-    "database_name": "v_spydr",
-    "database_user": "vitruvius",
+    "tablename": "sample",
+    "database_name": "sample",
+    "database_user": "nimbus",
     "database_password": "CSFDcode123",
     "model_type": "device",
     "model_schema": "device",
     "columns" : {
-        "spydr_id": {
+        "sample_id": {
             "type": "Integer",
             "index": true
         },
@@ -132,10 +132,6 @@
         },
         "baro_alert":{ 
             "type": "Integer"
-        },
-        "sortie_id":{ 
-            "type": "Integer",
-            "index": true
         }
     }
 }

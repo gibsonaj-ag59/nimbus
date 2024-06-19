@@ -1,6 +1,1 @@
-{
-  "DEVICE": "spydr",
-  "DEBUG": true,
-  "SECRET_KEY": "hello",
-  "SQLALCHEMY_TRACK_MODIFICATIONS": false
-}
+"{\n  \"DEVICE\": \"sample\",\n  \"DEBUG\": true,\n  \"SECRET_KEY\": \"hello\",\n  \"SQLALCHEMY_TRACK_MODIFICATIONS\": false\n}\n"
